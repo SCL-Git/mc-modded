@@ -1,0 +1,32 @@
+services:
+  mc:
+    image: itzg/minecraft-server:java8-multiarch
+    environment:
+      EULA: true
+      MOD_PLATFORM: AUTO_CURSEFORGE
+      # Set CF_API_KEY=... in a .env file next to this compose file and don't source control that file
+      CF_API_KEY: "$$2a$$10$$B7NFOPKGx21m0E.Pga.iJuuju2LX6AcVZr9sga3CBXUX/Avo.v5o6"
+      CF_SLUG: rlcraft
+      CF_FILENAME_MATCHER: 2.9.3
+      CF_FORCE_SYNCHRONIZE: true
+      INIT_MEMORY: 8G
+      MAX_MEMORY: 13G
+    volumes:
+      - mc-modded-data:/data
+    ports:
+      - "25568:25565"
+  backups:
+    image: itzg/mc-backup
+    depends_on:
+      mc:
+        condition: service_healthy
+    environment:
+      BACKUP_INTERVAL: "1h"
+      RCON_HOST: mc
+      INITIAL_DELAY: 0
+    volumes:
+      - mc-modded-data:/data:ro
+      - ./mc-backups:/backups
+
+volumes:
+  mc-modded-data: {}
