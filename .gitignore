@@ -3,3 +3,6 @@ mc-backups/
 
 #Ignore Download Files
 downloads/
+
+#Remove .env
+.env
