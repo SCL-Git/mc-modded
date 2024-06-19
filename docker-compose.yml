@@ -5,7 +5,7 @@ services:
       EULA: true
       MOD_PLATFORM: AUTO_CURSEFORGE
       # Set CF_API_KEY=... in a .env file next to this compose file and don't source control that file
-      CF_API_KEY: "$$2a$$10$$B7NFOPKGx21m0E.Pga.iJuuju2LX6AcVZr9sga3CBXUX/Avo.v5o6"
+      CF_API_KEY: ${CF_API_KEY}
       CF_SLUG: rlcraft
       CF_FILENAME_MATCHER: 2.9.3
       CF_FORCE_SYNCHRONIZE: true
