@@ -1,3 +1,5 @@
+#Ignore Backup Files
 mc-backups/
-./bin/
-./downloads/
+
+#Ignore Download Files
+downloads/
