@@ -5,4 +5,4 @@ mc-backups/
 downloads/
 
 #Remove .env
-.env
+*.env
